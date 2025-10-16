@@ -1,7 +1,7 @@
 <html lang="vi"><head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Website săn deal Diemchipk.com</title>
+<title>⚡️ SĂN DEAL 1K, 9K, 29K, FLASH SALE SỐC - Diemchipk.com</title>
 <style>
 body {
   font-family: Arial, sans-serif;
@@ -17,45 +17,46 @@ header {
   font-weight: bold;
   font-size: 22px;
 }
-a {
-  color: #d33;
-  text-decoration: none;
-}
-section {
-  margin: 20px 0;
-}
-h2 {
-  color: #ff5050;
-}
+a { color: #d33; text-decoration: none; }
+section { margin: 20px 0; }
+h2 { color: #ff5050; }
+
+/* ✅ CHỈ 4 SẢN PHẨM / HÀNG GIỐNG LINHKAA */
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 15px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
   justify-items: center;
-  padding: 10px;
+  align-items: start;
+  padding: 10px 30px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
+@media (max-width: 1024px) {
+  .grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 768px) {
+  .grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 480px) {
+  .grid { grid-template-columns: 1fr; }
+}
+
 .card {
   background: #fff;
   border-radius: 10px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
   transition: transform 0.2s ease;
-  width: 200px;
+  width: 220px;
   position: relative;
 }
-.card:hover {
-  transform: translateY(-5px);
-}
+.card:hover { transform: translateY(-5px); }
 .card img {
   width: 100%;
   border-radius: 10px 10px 0 0;
 }
-.card-content {
-  padding: 10px;
-}
-.price {
-  color: #d33;
-  font-weight: bold;
-}
+.card-content { padding: 10px; }
+.price { color: #d33; font-weight: bold; }
 .buy {
   display: block;
   margin-top: 8px;
@@ -64,9 +65,8 @@ h2 {
   padding: 8px;
   border-radius: 6px;
 }
-.buy:hover {
-  background: #ff8787;
-}
+.buy:hover { background: #ff8787; }
+
 #adminPanel {
   position: fixed;
   bottom: 0;
@@ -86,15 +86,11 @@ button {
   cursor: pointer;
   font-weight: bold;
 }
-button:hover {
-  background: #ff8787;
-}
-.delete-btn {
+button:hover { background: #ff8787; }
+.delete-btn, .edit-btn {
   display: none;
   position: absolute;
   top: 5px;
-  right: 5px;
-  background: #ff4d4d;
   border: none;
   color: white;
   border-radius: 50%;
@@ -102,11 +98,37 @@ button:hover {
   height: 24px;
   cursor: pointer;
 }
-footer {
-  margin: 30px 0;
-  font-size: 14px;
-  color: #666;
+.delete-btn { right: 5px; background: #ff4d4d; }
+.edit-btn { left: 5px; background: #ffb84d; }
+footer { margin: 30px 0; font-size: 14px; color: #666; }
+
+/* 🔴 Khung ngày giờ */
+.time-box {
+  background-color: #ffeaea;
+  border: 2px solid #ffb3b3;
+  color: #d33;
+  font-weight: bold;
+  padding: 10px;
+  border-radius: 10px;
+  width: fit-content;
+  margin: 20px auto;
+  font-size: 18px;
+  position: relative;
 }
+.edit-time-btn {
+  display: none;
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: #ff6b6b;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 26px;
+  height: 26px;
+  cursor: pointer;
+}
+.edit-time-btn:hover { background: #ff8787; }
 </style>
 </head>
 <body>
@@ -120,92 +142,68 @@ footer {
   </a> 🔥
 </header>
 
-<section id="deal1k">
-  <h2>🔥 Deal 1K</h2>
-  <div class="grid"><div class="card">
-    
-    <img src="https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lv9vyh5oiha106@resize_w450_nl.webp">
-    <div class="card-content">
-      <h3>găng</h3>
-      <div class="price">1.000 ₫</div>
-      <a class="buy" href="https://s.shopee.vn/2Vj8AqBVtA" target="_blank">Mua ngay</a>
-    </div></div></div>
-</section>
-
-<section id="deal9k">
-  <h2>🔥 Deal 9K</h2>
-  <div class="grid"></div>
-</section>
-
-<section id="deal29k">
-  <h2>🔥 Deal 29K</h2>
-  <div class="grid"></div>
-</section>
-
-<footer>
-  © 2025 Diemchipk.com | Chỉ admin có thể chỉnh sửa.
-</footer>
-
-<div id="adminPanel" style="display: block;">
-  <button onclick="addProduct()">➕ Thêm sản phẩm</button>
-  <button onclick="exportCode()">🚀 Cập nhật GitHub</button>
+<div class="time-box" id="dealTime">
+  
+  <span id="timeText">16-10 KHUNG: 17:00 | 🔥 SẮP DIỄN RA 🔥</span>
 </div>
 
-<script>
-const password = "buithanhhuy260403";
-const adminPanel = document.getElementById("adminPanel");
+<section id="deal1k"><h2>🔥 Deal 1K</h2><div class="grid"><div class="card">
+    
+    
+    <img src="https://down-vn.img.susercontent.com/file/cn-11134207-820l4-me81s0ntmk1t34@resize_w450_nl.webp">
+    <div class="card-content">
+      <h3>Đồ chơi vui nhộn khủng long Catapult</h3>
+      <div class="price">1.000 ₫</div>
+      <a class="buy" href="https://s.shopee.vn/8fJn18QrTB" target="_blank">Mua ngay</a>
+    </div></div><div class="card">
+    
+    
+    <img src="https://down-vn.img.susercontent.com/file/vn-11134207-7ras8-m3llwzbyrag8e6@resize_w450_nl.webp">
+    <div class="card-content">
+      <h3>Mút Rửa Chén Bát Ăn Dặm Dạng Nén Hogokids Chất Liệu Bột Gỗ Tự Nhiên</h3>
+      <div class="price">1.000 ₫</div>
+      <a class="buy" href="https://s.shopee.vn/6VFIRCcR1h" target="_blank">Mua ngay</a>
+    </div></div><div class="card">
+    
+    
+    <img src="https://down-vn.img.susercontent.com/file/vn-11134207-7ras8-m3ev18n7h0rlec@resize_w450_nl.webp">
+    <div class="card-content">
+      <h3>Lược Nhựa Massage 6 móng Tay Cầm Dài.</h3>
+      <div class="price">1.000 ₫</div>
+      <a class="buy" href="https://s.shopee.vn/7AUzFm1grj" target="_blank">Mua ngay</a>
+    </div></div><div class="card">
+    
+    
+    <img src="https://down-vn.img.susercontent.com/file/b569486034cb729631f985de15383daf@resize_w450_nl.webp">
+    <div class="card-content">
+      <h3>Set 50 Miếng Giấy Lót Nồi Chiên Hình Khuôn Bánh</h3>
+      <div class="price">1.000 ₫</div>
+      <a class="buy" href="https://s.shopee.vn/50QUfrLah0" target="_blank">Mua ngay</a>
+    </div></div><div class="card">
+    
+    
+    <img src="https://down-vn.img.susercontent.com/file/vn-11134201-7ra0g-m6j4lbkt5p5tc6@resize_w450_nl.webp">
+    <div class="card-content">
+      <h3>Túi Đựng Rác Tự Phân Hủy HGHOME Cỡ Lớn 55x65cm, Cuộn Dày Dặn Không Lõi Tiện Dụng Cho Gia Đình</h3>
+      <div class="price">1.000 ₫</div>
+      <a class="buy" href="https://s.shopee.vn/4LAnsgJ8UK" target="_blank">Mua ngay</a>
+    </div></div><div class="card">
+    
+    
+    <img src="https://down-vn.img.susercontent.com/file/vn-11134207-7ras8-m5dydl4dhuly8d@resize_w450_nl.webp">
+    <div class="card-content">
+      <h3>Bọc Chân Chống Xe Máy Các Loại Bọc Cao Su Dày Dặn Bảo Vệ Nền Nhà Chống Trơn Trượt Va Chạm</h3>
+      <div class="price">1.000 ₫</div>
+      <a class="buy" href="https://s.shopee.vn/2Vj9hLkpCJ" target="_blank">Mua ngay</a>
+    </div></div></div></section>
+<section id="deal9k"><h2>🔥 Deal 9K</h2><div class="grid"></div></section>
+<section id="deal29k"><h2>🔥 Deal 29K</h2><div class="grid"></div></section>
+<section id="dealTop"><h2>⚡️Top Deal Flash Sale Sốc Trong Hôm Nay</h2><div class="grid"></div></section>
 
-window.addEventListener("load", () => {
-  const pw = prompt("🔐 Nhập mật khẩu admin để chỉnh sửa:");
-  if (pw === password) {
-    adminPanel.style.display = "block";
-    document.querySelectorAll(".delete-btn").forEach(btn => {
-      btn.style.display = "block";
-    });
-  } else {
-    adminPanel.style.display = "none";
-    document.querySelectorAll(".delete-btn").forEach(btn => {
-      btn.style.display = "none";
-    });
-  }
-});
+<footer>© 2025 Diemchipk.com | Chỉ admin có thể chỉnh sửa.</footer>
 
-function addProduct() {
-  const name = prompt("Tên sản phẩm:");
-  const price = parseInt(prompt("Giá sản phẩm (vd: 9000):"));
-  const img = prompt("Link ảnh:");
-  const link = prompt("Link Shopee:");
-  if (!name || !price || !img || !link) return alert("Thiếu thông tin!");
 
-  let section;
-  if (price <= 1000) section = document.querySelector("#deal1k .grid");
-  else if (price <= 9000) section = document.querySelector("#deal9k .grid");
-  else section = document.querySelector("#deal29k .grid");
 
-  const card = document.createElement("div");
-  card.className = "card";
-  card.innerHTML = `
-    <button class='delete-btn' onclick='this.parentElement.remove()' style='display:block;'>❌</button>
-    <img src='${img}'>
-    <div class='card-content'>
-      <h3>${name}</h3>
-      <div class='price'>${price.toLocaleString()} ₫</div>
-      <a class='buy' href='${link}' target='_blank'>Mua ngay</a>
-    </div>`;
-  section.appendChild(card);
-}
-
-function exportCode() {
-  document.querySelectorAll(".delete-btn").forEach(btn => btn.remove());
-  const html = document.documentElement.outerHTML;
-  const blob = new Blob([html], {type:'text/html'});
-  const a = document.createElement('a');
-  a.href = URL.createObjectURL(blob);
-  a.download = "index.html";
-  a.click();
-  alert("✅ File index.html đã sẵn sàng để cập nhật GitHub!");
-}
-</script>
 
 
 
