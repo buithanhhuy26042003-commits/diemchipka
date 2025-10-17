@@ -21,42 +21,71 @@ a { color: #d33; text-decoration: none; }
 section { margin: 20px 0; }
 h2 { color: #ff5050; }
 
-/* ✅ CHỈ 4 SẢN PHẨM / HÀNG GIỐNG LINHKAA */
+/* ✅ Căn chỉnh lưới hiển thị */
 .grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
+  grid-template-columns: repeat(4, 1fr); /* 4 sản phẩm / hàng trên máy tính */
+  gap: 25px;
   justify-items: center;
-  align-items: start;
-  padding: 10px 30px;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-@media (max-width: 1024px) {
-  .grid { grid-template-columns: repeat(3, 1fr); }
-}
-@media (max-width: 768px) {
-  .grid { grid-template-columns: repeat(2, 1fr); }
-}
-@media (max-width: 480px) {
-  .grid { grid-template-columns: 1fr; }
+  padding: 20px 40px;
+  box-sizing: border-box;
 }
 
+/* ✅ Hiển thị 2 sản phẩm / hàng khi mở bằng điện thoại */
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    padding: 10px;
+  }
+}
+
+/* ✅ Căn chỉnh card đều nhau */
 .card {
   background: #fff;
-  border-radius: 10px;
+  border-radius: 12px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  transition: transform 0.2s ease;
-  width: 220px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  width: 100%;
+  max-width: 220px;
+  min-height: 330px;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
-.card:hover { transform: translateY(-5px); }
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
 .card img {
   width: 100%;
-  border-radius: 10px 10px 0 0;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 12px 12px 0 0;
 }
-.card-content { padding: 10px; }
-.price { color: #d33; font-weight: bold; }
+.card-content {
+  padding: 10px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.card-content h3 {
+  font-size: 14px;
+  color: #333;
+  margin: 5px 0;
+  min-height: 40px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.price {
+  color: #d33;
+  font-weight: bold;
+  font-size: 16px;
+}
 .buy {
   display: block;
   margin-top: 8px;
@@ -64,9 +93,12 @@ h2 { color: #ff5050; }
   color: white;
   padding: 8px;
   border-radius: 6px;
+  text-align: center;
+  font-weight: bold;
 }
 .buy:hover { background: #ff8787; }
 
+/* ✅ Admin Panel */
 #adminPanel {
   position: fixed;
   bottom: 0;
@@ -87,6 +119,8 @@ button {
   font-weight: bold;
 }
 button:hover { background: #ff8787; }
+
+/* Nút xóa / sửa */
 .delete-btn, .edit-btn {
   display: none;
   position: absolute;
@@ -100,6 +134,7 @@ button:hover { background: #ff8787; }
 }
 .delete-btn { right: 5px; background: #ff4d4d; }
 .edit-btn { left: 5px; background: #ffb84d; }
+
 footer { margin: 30px 0; font-size: 14px; color: #666; }
 
 /* 🔴 Khung ngày giờ */
@@ -144,60 +179,388 @@ footer { margin: 30px 0; font-size: 14px; color: #666; }
 
 <div class="time-box" id="dealTime">
   
-  <span id="timeText">16-10 KHUNG: 17:00 | 🔥 SẮP DIỄN RA 🔥</span>
+  <span id="timeText">17-10 KHUNG: 17:00 | 🔥 SẮP DIỄN RA 🔥</span>
 </div>
 
 <section id="deal1k"><h2>🔥 Deal 1K</h2><div class="grid"><div class="card">
     
     
-    <img src="https://down-vn.img.susercontent.com/file/cn-11134207-820l4-me81s0ntmk1t34@resize_w450_nl.webp">
+    <img src="https://down-vn.img.susercontent.com/file/vn-11134207-7ra0g-m71t1913ovc19c@resize_w450_nl.webp">
     <div class="card-content">
-      <h3>Đồ chơi vui nhộn khủng long Catapult</h3>
+      <h3>Bộ Thể Thao Nam Chất Thun Co Giãn, Tổ Ong Mềm Mịn Thu Đông</h3>
       <div class="price">1.000 ₫</div>
-      <a class="buy" href="https://s.shopee.vn/8fJn18QrTB" target="_blank">Mua ngay</a>
+      <a class="buy" href="https://s.shopee.vn/5pzclgkc0o" target="_blank">Mua ngay</a>
     </div></div><div class="card">
     
     
-    <img src="https://down-vn.img.susercontent.com/file/vn-11134207-7ras8-m3llwzbyrag8e6@resize_w450_nl.webp">
+    <img src="https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lm2q9b40q02nfc@resize_w450_nl.webp">
     <div class="card-content">
-      <h3>Mút Rửa Chén Bát Ăn Dặm Dạng Nén Hogokids Chất Liệu Bột Gỗ Tự Nhiên</h3>
+      <h3>Bông tai nữ nụ đính đá chuôi bạc 925 Eleanor Accessories khuyên tai basic phụ kiện trang sức 3240</h3>
       <div class="price">1.000 ₫</div>
-      <a class="buy" href="https://s.shopee.vn/6VFIRCcR1h" target="_blank">Mua ngay</a>
+      <a class="buy" href="https://s.shopee.vn/AUlSKJDsxT" target="_blank">Mua ngay</a>
     </div></div><div class="card">
     
     
-    <img src="https://down-vn.img.susercontent.com/file/vn-11134207-7ras8-m3ev18n7h0rlec@resize_w450_nl.webp">
+    <img src="https://down-vn.img.susercontent.com/file/vn-11134207-7ras8-m3vso6eaptj0c2@resize_w450_nl.webp">
     <div class="card-content">
-      <h3>Lược Nhựa Massage 6 móng Tay Cầm Dài.</h3>
+      <h3>Bao cao su Feelex Performance kéo dài thời gian ( 1 cái )</h3>
       <div class="price">1.000 ₫</div>
-      <a class="buy" href="https://s.shopee.vn/7AUzFm1grj" target="_blank">Mua ngay</a>
+      <a class="buy" href="https://s.shopee.vn/1LXDPX3Nru" target="_blank">Mua ngay</a>
     </div></div><div class="card">
     
     
-    <img src="https://down-vn.img.susercontent.com/file/b569486034cb729631f985de15383daf@resize_w450_nl.webp">
+    <img src="https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lttt1jh27m6l47@resize_w450_nl.webp">
     <div class="card-content">
-      <h3>Set 50 Miếng Giấy Lót Nồi Chiên Hình Khuôn Bánh</h3>
+      <h3>Mặt nạ cấp ẩm phục hồi trẻ hoá da KyungLab PDRN Mask chính hãng</h3>
       <div class="price">1.000 ₫</div>
-      <a class="buy" href="https://s.shopee.vn/50QUfrLah0" target="_blank">Mua ngay</a>
+      <a class="buy" href="https://s.shopee.vn/AKS28A2ENi" target="_blank">Mua ngay</a>
     </div></div><div class="card">
     
     
-    <img src="https://down-vn.img.susercontent.com/file/vn-11134201-7ra0g-m6j4lbkt5p5tc6@resize_w450_nl.webp">
+    <img src="https://down-vn.img.susercontent.com/file/vn-11134207-7ra0g-m9v31tdyh6y684@resize_w450_nl.webp">
     <div class="card-content">
-      <h3>Túi Đựng Rác Tự Phân Hủy HGHOME Cỡ Lớn 55x65cm, Cuộn Dày Dặn Không Lõi Tiện Dụng Cho Gia Đình</h3>
+      <h3>Túi hút chân không đựng quần áo chăn mền Deli</h3>
       <div class="price">1.000 ₫</div>
-      <a class="buy" href="https://s.shopee.vn/4LAnsgJ8UK" target="_blank">Mua ngay</a>
+      <a class="buy" href="https://s.shopee.vn/6ps9xmrfMJ" target="_blank">Mua ngay</a>
     </div></div><div class="card">
     
     
-    <img src="https://down-vn.img.susercontent.com/file/vn-11134207-7ras8-m5dydl4dhuly8d@resize_w450_nl.webp">
+    <img src="https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lmbat986egnze5@resize_w450_nl.webp">
     <div class="card-content">
-      <h3>Bọc Chân Chống Xe Máy Các Loại Bọc Cao Su Dày Dặn Bảo Vệ Nền Nhà Chống Trơn Trượt Va Chạm</h3>
+      <h3>Dây sạc type c Hoco siêu nhanh 3A - Cáp typec bọc bù andoird cho samsung xiaomi ..hocomall</h3>
       <div class="price">1.000 ₫</div>
-      <a class="buy" href="https://s.shopee.vn/2Vj9hLkpCJ" target="_blank">Mua ngay</a>
+      <a class="buy" href="https://s.shopee.vn/6AcTAbS71z" target="_blank">Mua ngay</a>
+    </div></div><div class="card">
+    
+    
+    <img src="https://down-vn.img.susercontent.com/file/vn-11134207-7ra0g-m84ng73qr43r2c@resize_w450_nl.webp">
+    <div class="card-content">
+      <h3>Dao Cạo Lông Mày Kai 38531 Groom 938531-HC1161</h3>
+      <div class="price">1.000 ₫</div>
+      <a class="buy" href="https://s.shopee.vn/6fYjlagT17" target="_blank">Mua ngay</a>
+    </div></div><div class="card">
+    
+    
+    <img src="https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lp3y5w94pxzv3d@resize_w450_nl.webp">
+    <div class="card-content">
+      <h3>Ổ cắm chuyển đổi đầu 3 chân sang 2 chân</h3>
+      <div class="price">1.000 ₫</div>
+      <a class="buy" href="https://s.shopee.vn/6fYjld67su" target="_blank">Mua ngay</a>
+    </div></div><div class="card">
+    
+    
+    <img src="https://down-vn.img.susercontent.com/file/vn-11134207-7ras8-m36hyn5ojdv044@resize_w450_nl.webp">
+    <div class="card-content">
+      <h3>Kẹo bi trái cây 300G - bánh kẹo Tết đồ ăn vặt</h3>
+      <div class="price">1.000 ₫</div>
+      <a class="buy" href="https://s.shopee.vn/6VFJZNjLuq" target="_blank">Mua ngay</a>
+    </div></div><div class="card">
+    
+    
+    <img src="https://down-vn.img.susercontent.com/file/vn-11134207-820l4-mf7rvtys1iiydd@resize_w450_nl.webp">
+    <div class="card-content">
+      <h3>Bàn Chải Đánh Răng Sợi Tre Bossi Hàn Quốc, mềm mại vệ sinh dễ dàng sạch sẽ</h3>
+      <div class="price">1.000 ₫</div>
+      <a class="buy" href="https://s.shopee.vn/8pdELhdr5k" target="_blank">Mua ngay</a>
+    </div></div><div class="card">
+    
+    
+    <img src="https://down-vn.img.susercontent.com/file/vn-11134207-7qukw-lj2bvxzi69jm93@resize_w450_nl.webp">
+    <div class="card-content">
+      <h3>Tất ngắn nam Vớ thấp cổ 4 màu trơn chống hôi chân</h3>
+      <div class="price">1.000 ₫</div>
+      <a class="buy" href="https://s.shopee.vn/8fJo9QUXSc" target="_blank">Mua ngay</a>
+    </div></div><div class="card">
+    
+    
+    <img src="https://down-vn.img.susercontent.com/file/vn-11134201-7r98o-lud97esn6zmsc9@resize_w450_nl.webp">
+    <div class="card-content">
+      <h3>Túi cuộn túi rác tự phân hủy khổ lớn 55 cm x 65 cm</h3>
+      <div class="price">1.000 ₫</div>
+      <a class="buy" href="https://s.shopee.vn/5fgCZxjhIJ" target="_blank">Mua ngay</a>
+    </div></div><div class="card">
+    
+    
+    <img src="https://down-vn.img.susercontent.com/file/vn-11134207-7ras8-mc7hvwmdnur66a@resize_w450_nl.webp">
+    <div class="card-content">
+      <h3>Đồ Chơi Xe Mini Chạy Đà Hình Các Con Thú Ngộ Nghĩnh Đáng Yêu Cho Bé</h3>
+      <div class="price">1.000 ₫</div>
+      <a class="buy" href="https://s.shopee.vn/8pdELoatHH" target="_blank">Mua ngay</a>
+    </div></div><div class="card">
+    
+    
+    <img src="https://down-vn.img.susercontent.com/file/vn-11134207-820l4-mem78ubj083m7e@resize_w450_nl.webp">
+    <div class="card-content">
+      <h3>Keo Dán Dép Đa Năng Super Glue-Dán Siêu Chắc Tuýt 3gr</h3>
+      <div class="price">1.000 ₫</div>
+      <a class="buy" href="https://s.shopee.vn/2g2b0W1xSL" target="_blank">Mua ngay</a>
+    </div></div><div class="card">
+    
+    
+    <img src="https://down-vn.img.susercontent.com/file/vn-11134207-820l4-me5krh5g1amaca@resize_w450_nl.webp">
+    <div class="card-content">
+      <h3>bịch khăn ướt cao cấp GUMMI 80 tờ không mùi không parabens dành cho em bé</h3>
+      <div class="price">1.000 ₫</div>
+      <a class="buy" href="https://s.shopee.vn/1BDnDpnysw" target="_blank">Mua ngay</a>
+    </div></div><div class="card">
+    
+    
+    <img src="https://down-vn.img.susercontent.com/file/vn-11134207-7ras8-md5hgtua58645f@resize_w450_nl.webp">
+    <div class="card-content">
+      <h3>Bút Highlight 2 Đầu Màu Pastel Nhẹ Nhàng, Bút Dạ Quang</h3>
+      <div class="price">1.000 ₫</div>
+      <a class="buy" href="https://s.shopee.vn/7KoQZDCEQh" target="_blank">Mua ngay</a>
+    </div></div><div class="card">
+    
+    
+    <img src="https://down-vn.img.susercontent.com/file/6b7cb24940af9af0a9b5b903ddb13641@resize_w450_nl.webp">
+    <div class="card-content">
+      <h3>Phích cắm CÁI Điện Quang ĐQ EPF 2PN</h3>
+      <div class="price">1.000 ₫</div>
+      <a class="buy" href="https://s.shopee.vn/5VMmNs9sWu" target="_blank">Mua ngay</a>
+    </div></div><div class="card">
+    
+    
+    <img src="https://down-vn.img.susercontent.com/file/sg-11134201-7qvfy-liu4miyx5ehbfc@resize_w450_nl.webp">
+    <div class="card-content">
+      <h3>Thước Kẻ Thép Deli Cao Cấp - Kích Thước 15cm Nhỏ Gọn, Tiện Lợi </h3>
+      <div class="price">1.000 ₫</div>
+      <a class="buy" href="https://s.shopee.vn/3AyrbdD9Lc" target="_blank">Mua ngay</a>
+    </div></div><div class="card">
+    
+    
+    <img src="https://down-vn.img.susercontent.com/file/sg-11134201-22120-jthehief4nlvdb@resize_w450_nl.webp">
+    <div class="card-content">
+      <h3>Cuộn Túi Rác- Túi Đựng Rác Tự Huỷ Sinh Học</h3>
+      <div class="price">1.000 ₫</div>
+      <a class="buy" href="https://s.shopee.vn/AUlSL91Xfe" target="_blank">Mua ngay</a>
+    </div></div><div class="card">
+    
+    
+    <img src="https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lsqp62zbjpuh59@resize_w450_nl.webp">
+    <div class="card-content">
+      <h3>Lọ Đựng Gia Vị Thủy Tinh Nhà Bếp 180ml</h3>
+      <div class="price">1.000 ₫</div>
+      <a class="buy" href="https://s.shopee.vn/8fJo9o8C9T" target="_blank">Mua ngay</a>
+    </div></div><div class="card">
+    
+    
+    <img src="https://down-vn.img.susercontent.com/file/sg-11134201-7reqe-m2l56mb8wdrhfe@resize_w450_nl.webp">
+    <div class="card-content">
+      <h3>Dao Rọc Giấy Đa Năng Bằng Thép Không Gỉ</h3>
+      <div class="price">1.000 ₫</div>
+      <a class="buy" href="https://s.shopee.vn/8KgxlFuRV3" target="_blank">Mua ngay</a>
+    </div></div><div class="card">
+    
+    
+    <img src="https://down-vn.img.susercontent.com/file/sg-11134201-7rdxe-mdfpc55kkxwkf5@resize_w450_nl.webp">
+    <div class="card-content">
+      <h3>Khăn Ướt Dịu Nhẹ Animo không mùi (30 tờ)</h3>
+      <div class="price">1.000 ₫</div>
+      <a class="buy" href="https://s.shopee.vn/3LIHo63njN" target="_blank">Mua ngay</a>
+    </div></div><div class="card">
+    
+    
+    <img src="https://down-vn.img.susercontent.com/file/vn-11134207-7ras8-md00627rjk2k39@resize_w450_nl.webp">
+    <div class="card-content">
+      <h3>Băng vệ sinh ban đêm dán MOHA cao cấp hộp 5 miếng</h3>
+      <div class="price">1.000 ₫</div>
+      <a class="buy" href="https://s.shopee.vn/1VqdclEqyg" target="_blank">Mua ngay</a>
+    </div></div><div class="card">
+    
+    
+    <img src="https://down-vn.img.susercontent.com/file/vn-11134207-7qukw-lkhmv01k2v184a@resize_w450_nl.webp">
+    <div class="card-content">
+      <h3>Ốp chống sốc Silcon DẺO siêu trong suốt</h3>
+      <div class="price">1.000 ₫</div>
+      <a class="buy" href="https://s.shopee.vn/9zpBkQtraG" target="_blank">Mua ngay</a>
     </div></div></div></section>
-<section id="deal9k"><h2>🔥 Deal 9K</h2><div class="grid"></div></section>
-<section id="deal29k"><h2>🔥 Deal 29K</h2><div class="grid"></div></section>
+<section id="deal9k"><h2>🔥 Deal 9K</h2><div class="grid"><div class="card">
+    
+    
+    <img src="https://down-vn.img.susercontent.com/file/vn-11134207-820l4-mfdtvh6mn6ru23@resize_w450_nl.webp">
+    <div class="card-content">
+      <h3>Set 5 Bàn Chải Đánh Răng Hàn Quốc</h3>
+      <div class="price">9.000 ₫</div>
+      <a class="buy" href="https://s.shopee.vn/1Vqdcrq1l2" target="_blank">Mua ngay</a>
+    </div></div><div class="card">
+    
+    
+    <img src="https://down-vn.img.susercontent.com/file/156c2093d3f0f7f3b691b7711b9821c6@resize_w450_nl.webp">
+    <div class="card-content">
+      <h3>Găng tay chơi game - Bao tay chơi game Memo sợi bạc MK8 sợi đồng nguyên chất chống loạn cảm ứng</h3>
+      <div class="price">9.000 ₫</div>
+      <a class="buy" href="https://s.shopee.vn/1qTU1WRY1o" target="_blank">Mua ngay</a>
+    </div></div><div class="card">
+    
+    
+    <img src="https://down-vn.img.susercontent.com/file/vn-11134201-7ra0g-m81csfu1v81z47@resize_w450_nl.webp">
+    <div class="card-content">
+      <h3>Dao Cạo Râu Avatar 2 Lưỡi Kép Thân Nhựa Dành Cho Nam (Set 5 Cây Màu Ngầu Nhiên)</h3>
+      <div class="price">9.000 ₫</div>
+      <a class="buy" href="https://s.shopee.vn/6fYjmRuWx7" target="_blank">Mua ngay</a>
+    </div></div><div class="card">
+    
+    
+    <img src="https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lndp40pfonzucf@resize_w450_nl.webp">
+    <div class="card-content">
+      <h3>Ốp lưng trong suốt Cao Cấp P43/P12 KOLEAD chống xước, chống ố Iphone 7 8 x xs xsm 13 12 11 14 15 16 promax PRO PLUS</h3>
+      <div class="price">9.000 ₫</div>
+      <a class="buy" href="https://s.shopee.vn/7pkhAeF8cb" target="_blank">Mua ngay</a>
+    </div></div><div class="card">
+    
+    
+    <img src="https://down-vn.img.susercontent.com/file/vn-11134207-7ras8-mbtozn1yxgwl6e@resize_w450_nl.webp">
+    <div class="card-content">
+      <h3>CHARM gắn dép sục - Bộ 10 sticker</h3>
+      <div class="price">9.000 ₫</div>
+      <a class="buy" href="https://s.shopee.vn/7fRGyNWZ06" target="_blank">Mua ngay</a>
+    </div></div><div class="card">
+    
+    
+    <img src="https://down-vn.img.susercontent.com/file/vn-11134207-7ras8-m44hpez0rbwn4a@resize_w450_nl.webp">
+    <div class="card-content">
+      <h3>Vỏ gối ôm dài người lớn may 100% cotton Hàn Quốc</h3>
+      <div class="price">9.000 ₫</div>
+      <a class="buy" href="https://s.shopee.vn/30fRPpab5A" target="_blank">Mua ngay</a>
+    </div></div><div class="card">
+    
+    
+    <img src="https://down-vn.img.susercontent.com/file/vn-11134207-7ras8-mcod2y0tla3g58@resize_w450_nl.webp">
+    <div class="card-content">
+      <h3>Thảm lau chân nhà bếp mềm mịn dày dặn thấm hút nước tốt chống trơn trượt</h3>
+      <div class="price">9.000 ₫</div>
+      <a class="buy" href="https://s.shopee.vn/1gA3pPf0Eh" target="_blank">Mua ngay</a>
+    </div></div><div class="card">
+    
+    
+    <img src="https://down-vn.img.susercontent.com/file/vn-11134207-7ras8-m1nmef3okfy70c@resize_w450_nl.webp">
+    <div class="card-content">
+      <h3>Đá Cắt Sắt, Hộp 100 lưỡi cắt sắt</h3>
+      <div class="price">9.000 ₫</div>
+      <a class="buy" href="https://s.shopee.vn/7fRGyThkeb" target="_blank">Mua ngay</a>
+    </div></div><div class="card">
+    
+    
+    <img src="https://down-vn.img.susercontent.com/file/vn-11134207-820l4-mekxgljqo5j945@resize_w450_nl.webp">
+    <div class="card-content">
+      <h3>[1 Cuộn] Túi Niêm Phong Xám Đen</h3>
+      <div class="price">9.000 ₫</div>
+      <a class="buy" href="https://s.shopee.vn/60J2zUlnlK" target="_blank">Mua ngay</a>
+    </div></div><div class="card">
+    
+    
+    <img src="https://down-vn.img.susercontent.com/file/vn-11134211-7ras8-mbw1uu9vu0du81@resize_w450_nl.webp">
+    <div class="card-content">
+      <h3>Bi sắt 6.35mm và 7mm túi 300vien-500vien-1000vien dùng trong máy móc,ổ trục bi, ổ trục xe máy xe đạp</h3>
+      <div class="price">9.000 ₫</div>
+      <a class="buy" href="https://s.shopee.vn/3LIHocv95E" target="_blank">Mua ngay</a>
+    </div></div><div class="card">
+    
+    
+    <img src="https://down-vn.img.susercontent.com/file/vn-11134211-7r98o-lz08ddob0wuld6@resize_w450_nl.webp">
+    <div class="card-content">
+      <h3>0ml - Dưỡng thể chống nắng Vaseline Healthy Bright SPF50+ - TUÝP VÀNG</h3>
+      <div class="price">9.000 ₫</div>
+      <a class="buy" href="https://s.shopee.vn/1qTU1uLhdp" target="_blank">Mua ngay</a>
+    </div></div><div class="card">
+    
+    
+    <img src="https://down-vn.img.susercontent.com/file/sg-11134201-824jh-meazq8wo91j6a6@resize_w450_nl.webp">
+    <div class="card-content">
+      <h3>Mũ Quấn Tóc Lông Dệt Sóng Siêu Thấm Hút , Khăn Bông Ủ Quấn Tóc</h3>
+      <div class="price">9.000 ₫</div>
+      <a class="buy" href="https://s.shopee.vn/7AV0NjwGCx" target="_blank">Mua ngay</a>
+    </div></div><div class="card">
+    
+    
+    <img src="https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lm62no15gtlr74@resize_w450_nl.webp">
+    <div class="card-content">
+      <h3>Giấy ăn rút lụa khổ lớn Chery Silkwell 280 tờ 2 lớp</h3>
+      <div class="price">9.000 ₫</div>
+      <a class="buy" href="https://s.shopee.vn/6ps9zBizPE" target="_blank">Mua ngay</a>
+    </div></div><div class="card">
+    
+    
+    <img src="https://down-vn.img.susercontent.com/file/vn-11134207-7ras8-m63hst4k5qf7ca@resize_w450_nl.webp">
+    <div class="card-content">
+      <h3>Khăn cột tóc turban lụa quấn túi xách quàng cổ</h3>
+      <div class="price">9.000 ₫</div>
+      <a class="buy" href="https://s.shopee.vn/60J2zgTPZA" target="_blank">Mua ngay</a>
+    </div></div><div class="card">
+    
+    
+    <img src="https://down-vn.img.susercontent.com/file/vn-11134207-820l4-mf96yyn8ym1a8f@resize_w450_nl.webp">
+    <div class="card-content">
+      <h3>Yếm silicon siêu mỏng có máng mềm mại cho bé, không gây vướng cổ và cảm giác thoải mái</h3>
+      <div class="price">9.000 ₫</div>
+      <a class="buy" href="https://s.shopee.vn/9UsvA9KA0Z" target="_blank">Mua ngay</a>
+    </div></div><div class="card">
+    
+    
+    <img src="https://down-vn.img.susercontent.com/file/vn-11134207-7ras8-mbgl9mx0mupgaa@resize_w450_nl.webp">
+    <div class="card-content">
+      <h3>Set 4 Bông Mút Trang Điểm Kèm Hộp Đựng Xinh Xắn</h3>
+      <div class="price">9.000 ₫</div>
+      <a class="buy" href="https://s.shopee.vn/AUlSM16TGJ" target="_blank">Mua ngay</a>
+    </div></div></div></section>
+<section id="deal29k"><h2>🔥 Deal 29K</h2><div class="grid"><div class="card">
+    
+    
+    <img src="https://down-vn.img.susercontent.com/file/f3644440ae3174a104943ffe69508c31@resize_w450_nl.webp">
+    <div class="card-content">
+      <h3>Kính cường lực Kingkong WEKOME iphone WTP-064 trong suốt, chống nhìn trộm</h3>
+      <div class="price">29.000 ₫</div>
+      <a class="buy" href="https://s.shopee.vn/5VMmOwegnS" target="_blank">Mua ngay</a>
+    </div></div><div class="card">
+    
+    
+    <img src="https://down-vn.img.susercontent.com/file/vn-11134207-820l4-meznt2w6myvfab@resize_w450_nl.webp">
+    <div class="card-content">
+      <h3>combo 600 chiếc KHẨU TRANG THUẬN PHÁT 3 LỚP THÁI LAN 4 LỚP</h3>
+      <div class="price">29.000 ₫</div>
+      <a class="buy" href="https://s.shopee.vn/3Vbi1J7Dd3" target="_blank">Mua ngay</a>
+    </div></div><div class="card">
+    
+    
+    <img src="https://down-vn.img.susercontent.com/file/vn-11134207-7ra0g-m73nid4kj12w57@resize_w450_nl.webp">
+    <div class="card-content">
+      <h3>Dép tông quai ngang nữ nhiều màu đế bệt chất liệu nhựa dẻo mềm rửa nước thoải mái</h3>
+      <div class="price">29.000 ₫</div>
+      <a class="buy" href="https://s.shopee.vn/8fJoAprPtD" target="_blank">Mua ngay</a>
+    </div></div><div class="card">
+    
+    
+    <img src="https://down-vn.img.susercontent.com/file/vn-11134207-7qukw-lfobbw2u9z7948@resize_w450_nl.webp">
+    <div class="card-content">
+      <h3>Gậy chụp ảnh tự sướng 3 chân bluetooth có đèn led</h3>
+      <div class="price">29.000 ₫</div>
+      <a class="buy" href="https://s.shopee.vn/5fgCbMfcvj" target="_blank">Mua ngay</a>
+    </div></div><div class="card">
+    
+    
+    <img src="https://down-vn.img.susercontent.com/file/vn-11134207-820l4-mf3kanr6l24p05@resize_w450_nl.webp">
+    <div class="card-content">
+      <h3>Khăn ướt cao cấp Topgia 80 tờ mềm mại, không cồn không mùi</h3>
+      <div class="price">29.000 ₫</div>
+      <a class="buy" href="https://s.shopee.vn/LegFbBuR6" target="_blank">Mua ngay</a>
+    </div></div><div class="card">
+    
+    
+    <img src="https://down-vn.img.susercontent.com/file/vn-11134207-7ra0g-m8ggczsmgxhjf3@resize_w450_nl.webp">
+    <div class="card-content">
+      <h3>Combo 50 cốc Nhôm làm Bánh Nồi Chiên Không Dầu</h3>
+      <div class="price">29.000 ₫</div>
+      <a class="buy" href="https://s.shopee.vn/9KZUyBgyMF" target="_blank">Mua ngay</a>
+    </div></div><div class="card">
+    
+    
+    <img src="https://down-vn.img.susercontent.com/file/vn-11134207-7ras8-mbda5z81i1nbbe@resize_w450_nl.webp">
+    <div class="card-content">
+      <h3>Combo 2 sốt tiêu đen 200gr Dh Foods</h3>
+      <div class="price">29.000 ₫</div>
+      <a class="buy" href="https://s.shopee.vn/3qEYQ7W2Py" target="_blank">Mua ngay</a>
+    </div></div></div></section>
 <section id="dealTop"><h2>⚡️Top Deal Flash Sale Sốc Trong Hôm Nay</h2><div class="grid"></div></section>
 
 <footer>© 2025 Diemchipk.com | Chỉ admin có thể chỉnh sửa.</footer>
